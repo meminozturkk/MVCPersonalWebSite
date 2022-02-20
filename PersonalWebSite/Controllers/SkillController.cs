@@ -33,6 +33,30 @@ namespace PersonalWebSite.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult DeleteSkill(int id)
+        {
+            var skill = repository.Find(x => x.Id == id);
+            repository.TDelete(skill);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult EditSkill(int id)
+        {
+            var skill = repository.Find(x => x.Id == id);
+            return View(skill);
+        }
+
+        [HttpPost]
+        public ActionResult EditSkill(TblSkill skills)
+        {
+            var skill = repository.Find(x => x.Id == skills.Id);
+            skill.Skill = skills.Skill;
+            skill.Rate = skills.Rate;
+            repository.TUpdate(skill);
+            return RedirectToAction("Index");
+        }
+
     }
 
 

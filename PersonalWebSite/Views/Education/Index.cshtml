@@ -1,0 +1,42 @@
+﻿@using PersonalWebSite.Models.Entity
+@model List<TblEducation>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Deneyim Listesi</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Başlık</th>
+        <th>Altbaşlik</th>
+        <th>Altbaşlik</th>
+        <th>Tarih</th>
+        <th>GNO</th>
+        <th>Sil</th>
+        <th>Duzenle</th>
+
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Title</td>
+            <td>@item.Subtitle1</td>
+            <td>@item.Subtitle2</td>
+            <td>@item.Date</td>
+            <td>@item.GNO</td>
+            <td><a href="/Education/DeleteEducation/@item.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="#" class=" btn btn-warning">Düzenle</a></td>
+        </tr>
+    }
+
+</table>
+
+<td><a href="/Education/NewEducation/" class="btn btn-primary ">Yeni Eğitim Ekle</a></td>
+
+
+
