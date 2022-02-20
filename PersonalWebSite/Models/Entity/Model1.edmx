@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DbCvModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DbCvModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TblAbout">
           <Key>
             <PropertyRef Name="Id" />
@@ -12,7 +12,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="25" />
           <Property Name="Surname" Type="varchar" MaxLength="20" />
-          <Property Name="Address" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="varchar(max)" />
           <Property Name="Telephone" Type="varchar" MaxLength="20" />
           <Property Name="Mail" Type="varchar" MaxLength="50" />
           <Property Name="Explanation" Type="varchar(max)" />
@@ -31,7 +31,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Explanation" Type="varchar" MaxLength="250" />
+          <Property Name="Explanation" Type="varchar" MaxLength="1000" />
         </EntityType>
         <EntityType Name="TblContact">
           <Key>
@@ -50,8 +50,8 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="varchar" MaxLength="50" />
-          <Property Name="Subtitle1" Type="varchar" MaxLength="50" />
-          <Property Name="Subtitle2" Type="varchar" MaxLength="50" />
+          <Property Name="Subtitle1" Type="varchar" MaxLength="250" />
+          <Property Name="Subtitle2" Type="varchar" MaxLength="500" />
           <Property Name="GNO" Type="varchar" MaxLength="10" />
           <Property Name="Date" Type="varchar" MaxLength="50" />
         </EntityType>
@@ -61,9 +61,9 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="varchar" MaxLength="50" />
-          <Property Name="Subtitle" Type="varchar" MaxLength="70" />
+          <Property Name="Subtitle" Type="varchar" MaxLength="100" />
           <Property Name="Explanation" Type="varchar(max)" />
-          <Property Name="Date" Type="varchar" MaxLength="50" />
+          <Property Name="Date" Type="varchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'DbCv.dbo.TblInterest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -72,7 +72,7 @@ warning 6002: The table/view 'DbCv.dbo.TblInterest' does not have a primary key 
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Explanation1" Type="varchar" MaxLength="500" />
+          <Property Name="Explanation1" Type="varchar" MaxLength="1000" />
           <Property Name="Explanation2" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="TblSkill">
@@ -81,6 +81,7 @@ warning 6002: The table/view 'DbCv.dbo.TblInterest' does not have a primary key 
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Skill" Type="varchar" MaxLength="100" />
+          <Property Name="Rate" Type="tinyint" />
         </EntityType>
         <EntityContainer Name="DbCvModelStoreContainer">
           <EntitySet Name="TblAbout" EntityType="Self.TblAbout" Schema="dbo" store:Type="Tables" />
@@ -98,8 +99,7 @@ warning 6002: The table/view 'DbCv.dbo.TblInterest' does not have a primary key 
     FROM [dbo].[TblInterest] AS [TblInterest]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DbCvModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -110,7 +110,7 @@ warning 6002: The table/view 'DbCv.dbo.TblInterest' does not have a primary key 
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Explanation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -129,7 +129,7 @@ warning 6002: The table/view 'DbCv.dbo.TblInterest' does not have a primary key 
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Explanation" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Explanation" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TblContact">
           <Key>
@@ -148,8 +148,8 @@ warning 6002: The table/view 'DbCv.dbo.TblInterest' does not have a primary key 
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Subtitle1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Subtitle2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Subtitle1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Subtitle2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="GNO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -159,9 +159,9 @@ warning 6002: The table/view 'DbCv.dbo.TblInterest' does not have a primary key 
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Subtitle" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Subtitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Explanation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TblSkill">
           <Key>
@@ -169,13 +169,14 @@ warning 6002: The table/view 'DbCv.dbo.TblInterest' does not have a primary key 
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Skill" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Rate" Type="Byte" />
         </EntityType>
         <EntityType Name="TblInterest">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Explanation1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Explanation1" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="Explanation2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="DbCvEntities" annotation:LazyLoadingEnabled="true">
@@ -263,6 +264,7 @@ warning 6002: The table/view 'DbCv.dbo.TblInterest' does not have a primary key 
           <EntitySetMapping Name="TblSkills">
             <EntityTypeMapping TypeName="DbCvModel.TblSkill">
               <MappingFragment StoreEntitySet="TblSkill">
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Skill" ColumnName="Skill" />
               </MappingFragment>
