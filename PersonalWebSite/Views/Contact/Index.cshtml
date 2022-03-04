@@ -1,63 +1,61 @@
 ﻿@using PersonalWebSite.Models.Entity
-@model List<TblCertificate>
-
+@model List<TblContact>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
+<br />
+<h2>İletişim Sayfası</h2>
+<br />
 <!DOCTYPE html>
 <html>
 <body class="hold-transition sidebar-mini">
     <section class="content">
         <div class="container-fluid">
             <div class="row">
+              
                 <!-- /.col -->
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header p-2">
-                            <ul class="nav nav-pills">
-                            </ul>
-                        </div><!-- /.card-header -->
                         <div class="card-body">
-                            <div class="tab-content">
-                                <!-- The timeline -->
-                                <div class="timeline timeline-inverse">
-                                    @foreach (var item in Model)
-                                    {
+                            <div class="tab-pane" id="timeline">
+                                @foreach (var item in Model)
+                                {
+                                    <!-- The timeline -->
+                                    <div class="timeline timeline-inverse">
                                         <!-- timeline time label -->
                                         <div class="time-label">
-
                                             <span class="bg-danger">
-                                                @item.Id
+                                                @(((DateTime)item.Date).ToString("dd-MM-yyyy"))
                                             </span>
                                         </div>
                                         <!-- /.timeline-label -->
                                         <!-- timeline item -->
                                         <div>
-                                            <i class="fas fa-magic bg-primary"></i>
+                                            <i class="fas fa-comments bg-warning"></i>
                                             <div class="timeline-item">
+                                                <span class="time"><i class=""></i> @item.Mail</span>
+                                                <h3 class="timeline-header"><a href="#">@item.NameSurname</a> @item.Topic</h3>
                                                 <div class="timeline-body">
-                                                    @item.Explanation
+                                                    @item.Message
                                                 </div>
                                                 <div class="timeline-footer">
-                                                    <a href="/Certificate/EditCerficate/@item.Id" class="btn btn-primary btn-sm">Düzenle</a>
-                                                    <a href="/Certificate/DeleteCertificate/@item.Id" class="btn btn-danger btn-sm">Sil</a>
+                                                    <a href="/Contact/DeleteContact/@item.Id" class="btn btn-warning btn-flat btn-sm">Sil</a>
                                                 </div>
                                             </div>
                                         </div>
-                                    }
+                                    </div>
+                                }
                                 </div>
-                                <a href="/Certificate/AddCertificate/" class="btn btn-danger btn-sm">Yeni Sertifika Ekle</a>
                             </div>
-                            </div>
+                            <!-- /.tab-content -->
                         </div><!-- /.card-body -->
                     </div>
+                
                     <!-- /.nav-tabs-custom -->
                 </div>
                 <!-- /.col -->
             </div>
-            <!-- /.row -->
     </section>
 </body>
 </html>

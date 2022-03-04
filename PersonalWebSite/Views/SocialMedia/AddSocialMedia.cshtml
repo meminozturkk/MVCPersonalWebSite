@@ -1,0 +1,26 @@
+﻿@model PersonalWebSite.Models.Entity.TblSocialMedia
+@{
+    ViewBag.Title = "AddSocialMedia";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Sosyal Medya Ekleme</h2>
+
+<form method="post">
+
+
+    @Html.Label("Name")
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    @Html.Label("Link")
+    @Html.TextBoxFor(x => x.Link, new { @class = "form-control" })
+    <br />
+    @Html.Label("İkon")
+    @Html.TextBoxFor(x => x.Icon, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-info">Kaydet</button>
+
+
+
+</form>

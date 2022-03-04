@@ -1,0 +1,31 @@
+﻿@model PersonalWebSite.Models.Entity.TblSocialMedia
+@{
+    ViewBag.Title = "EditSocialMedia";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Sosyal Medya Düzenleme</h2>
+<br />
+
+<form method="post">
+
+    @Html.Label("ID")
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Başlık")
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    @Html.Label("Altbaşlık 1")
+    @Html.TextBoxFor(x => x.Link, new { @class = "form-control" })
+    <br />
+    @Html.Label("Altbaşlık 2")
+    @Html.TextBoxFor(x => x.Icon, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-info">Güncelle</button>
+
+
+
+</form>
+
+

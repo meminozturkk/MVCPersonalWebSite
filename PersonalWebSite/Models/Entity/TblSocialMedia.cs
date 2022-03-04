@@ -12,13 +12,11 @@ namespace PersonalWebSite.Models.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class TblEducation
+    public partial class TblSocialMedia
     {
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Subtitle1 { get; set; }
-        public string Subtitle2 { get; set; }
-        public string GNO { get; set; }
-        public string Date { get; set; }
+        public byte ID { get; set; }
+        public string Name { get; set; }
+        public string Link { get; set; }
+        public string Icon { get; set; }
     }
 }

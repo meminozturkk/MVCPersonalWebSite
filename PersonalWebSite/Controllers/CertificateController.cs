@@ -18,10 +18,46 @@ namespace PersonalWebSite.Controllers
             var certificate = reporsitory.List();
             return View(certificate);
         }
-
-        public ActionResult EditCerficate()
+        [HttpGet]
+        public ActionResult EditCerficate(int id)
         {
-
+            TblCertificate certificate = reporsitory.Find(x => x.Id == id);
+            return View(certificate);
         }
+
+        [HttpPost]
+
+        public ActionResult EditCerficate(TblCertificate c)
+        {
+            TblCertificate certificate = reporsitory.Find(x => x.Id == c.Id);
+
+            certificate.Explanation = c.Explanation;
+
+            reporsitory.TUpdate(certificate);
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult DeleteCertificate(int id)
+        {
+            TblCertificate certificate = reporsitory.Find(x => x.Id == id);
+            reporsitory.TDelete(certificate);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult AddCertificate()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddCertificate(TblCertificate certificate)
+        {
+            reporsitory.TAdd(certificate);
+
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

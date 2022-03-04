@@ -23,7 +23,11 @@ namespace PersonalWebSite.Controllers
             var experiences = db.TblExperiences.ToList();
             return PartialView(experiences);
         }
-
+        public PartialViewResult SocialMedia()
+        {
+            var socialMedia = db.TblSocialMedias.ToList();
+            return PartialView(socialMedia);
+        }
         public PartialViewResult Education()
         {
             var educations = db.TblEducations.ToList();

@@ -1,0 +1,26 @@
+﻿@model PersonalWebSite.Models.Entity.TblCertificate
+@{
+    ViewBag.Title = "AddCertificate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<br />
+<h2>Sertifika Ekleme</h2>
+<br />
+
+<form method="post">
+
+    @Html.Label("Sertifika")
+    <br />
+    @Html.ValidationMessageFor(x => x.Explanation, "", new { @style = "color:red" })
+    @Html.TextBoxFor(x => x.Explanation, new { @class = "form-control" })
+    <br />
+   
+    <button class="btn btn-info">Kaydet</button>
+
+
+
+</form>
+
+

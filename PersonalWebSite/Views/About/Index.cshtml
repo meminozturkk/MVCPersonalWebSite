@@ -1,22 +1,39 @@
-﻿
+﻿@using PersonalWebSite.Models.Entity
+@model List<TblAbout>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<br />
 <h2>Hakkımda Menüsü</h2>
+<br />
 
-<table class=" table table-bordered">
-    <tr>
-        <th>ID</th>
-        <th>Ad</th>
-        <th>Şehir</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Muhammet Emin Ozturk</td>
-        <td>Istanbul</td>
-    </tr>
+<form method="post">
+    @foreach (var item in Model)
+    {
+        <label>İsim</label>
+        <textarea rows="1" class="form-control" name="Name">@item.Name</textarea>
+        <br />
+        <label>Soyisim</label>
+        <textarea rows="1" class="form-control" name="Surname">@item.Surname</textarea>
+        <br />
+        <label>Mail</label>
+        <textarea rows="1" class="form-control" name="Mail">@item.Mail</textarea>
+        <br />
+        <label>Telefon</label>
+        <textarea rows="1" class="form-control" name="Telephone">@item.Telephone</textarea>
+        <br />
+        <label>Açıklama</label>
+        <textarea rows="5" class="form-control" name="Explanation">@item.Explanation</textarea>
+        <br />
+        <label>Resim</label>
+        <textarea rows="1" class="form-control" name="Image">@item.Image</textarea>
 
-</table>
+
+    }
+    <br />
+    <button class="btn btn-info">Güncelle</button>
+
+</form>
 

@@ -33,5 +33,6 @@ namespace PersonalWebSite.Models.Entity
         public virtual DbSet<TblExperience> TblExperiences { get; set; }
         public virtual DbSet<TblSkill> TblSkills { get; set; }
         public virtual DbSet<TblInterest> TblInterests { get; set; }
+        public virtual DbSet<TblSocialMedia> TblSocialMedias { get; set; }
     }
 }

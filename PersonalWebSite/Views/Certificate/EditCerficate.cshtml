@@ -1,0 +1,22 @@
+﻿@model PersonalWebSite.Models.Entity.TblCertificate
+@{
+    ViewBag.Title = "EditCerficate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Certifika Düzenle</h2>
+<br />
+<form method="post">
+
+    @Html.Label("ID")
+    @Html.TextBoxFor(x => x.Id, new { @class = "form-control" })
+    <br />
+    @Html.Label("Başlık")
+    @Html.TextBoxFor(x => x.Explanation, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Güncelle</button>
+
+
+
+</form>

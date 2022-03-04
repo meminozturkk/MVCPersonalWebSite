@@ -65,8 +65,6 @@
           <Property Name="Explanation" Type="varchar(max)" />
           <Property Name="Date" Type="varchar(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DbCv.dbo.TblInterest' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TblInterest">
           <Key>
             <PropertyRef Name="Id" />
@@ -83,6 +81,15 @@ warning 6002: The table/view 'DbCv.dbo.TblInterest' does not have a primary key 
           <Property Name="Skill" Type="varchar" MaxLength="100" />
           <Property Name="Rate" Type="tinyint" />
         </EntityType>
+        <EntityType Name="TblSocialMedia">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Link" Type="nchar" MaxLength="100" />
+          <Property Name="Icon" Type="varchar" MaxLength="25" />
+        </EntityType>
         <EntityContainer Name="DbCvModelStoreContainer">
           <EntitySet Name="TblAbout" EntityType="Self.TblAbout" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblAdmin" EntityType="Self.TblAdmin" Schema="dbo" store:Type="Tables" />
@@ -90,14 +97,9 @@ warning 6002: The table/view 'DbCv.dbo.TblInterest' does not have a primary key 
           <EntitySet Name="TblContact" EntityType="Self.TblContact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblEducation" EntityType="Self.TblEducation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblExperience" EntityType="Self.TblExperience" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblInterest" EntityType="Self.TblInterest" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblSkill" EntityType="Self.TblSkill" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TblInterest" EntityType="Self.TblInterest" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [TblInterest].[Id] AS [Id], 
-    [TblInterest].[Explanation1] AS [Explanation1], 
-    [TblInterest].[Explanation2] AS [Explanation2]
-    FROM [dbo].[TblInterest] AS [TblInterest]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="TblSocialMedia" EntityType="Self.TblSocialMedia" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -188,7 +190,17 @@ warning 6002: The table/view 'DbCv.dbo.TblInterest' does not have a primary key 
           <EntitySet Name="TblExperiences" EntityType="Self.TblExperience" />
           <EntitySet Name="TblSkills" EntityType="Self.TblSkill" />
           <EntitySet Name="TblInterests" EntityType="Self.TblInterest" />
+          <EntitySet Name="TblSocialMedias" EntityType="DbCvModel.TblSocialMedia" />
         </EntityContainer>
+        <EntityType Name="TblSocialMedia">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Byte" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Link" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Icon" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -276,6 +288,16 @@ warning 6002: The table/view 'DbCv.dbo.TblInterest' does not have a primary key 
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Explanation1" ColumnName="Explanation1" />
                 <ScalarProperty Name="Explanation2" ColumnName="Explanation2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblSocialMedias">
+            <EntityTypeMapping TypeName="DbCvModel.TblSocialMedia">
+              <MappingFragment StoreEntitySet="TblSocialMedia">
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
