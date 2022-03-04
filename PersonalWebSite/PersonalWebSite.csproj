@@ -138,6 +138,7 @@
     <Compile Include="Controllers\ExperienceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InterestController.cs" />
+    <Compile Include="Controllers\PopupController.cs" />
     <Compile Include="Controllers\SkillController.cs" />
     <Compile Include="Controllers\SocialMediaController.cs" />
     <Compile Include="Global.asax.cs">
@@ -2370,6 +2371,7 @@
     <Content Include="Views\SocialMedia\Index.cshtml" />
     <Content Include="Views\SocialMedia\EditSocialMedia.cshtml" />
     <Content Include="Views\SocialMedia\AddSocialMedia.cshtml" />
+    <Content Include="Views\Default\Popup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

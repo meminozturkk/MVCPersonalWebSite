@@ -66,5 +66,10 @@ namespace PersonalWebSite.Controllers
             db.SaveChanges();
             return PartialView(Contact());
         }
+
+        public PartialViewResult Popup()
+        {
+            return PartialView();
+        }
     }
 }
