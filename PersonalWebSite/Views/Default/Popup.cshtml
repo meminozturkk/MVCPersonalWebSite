@@ -18,7 +18,7 @@
         }
 
         .popup {
-            background-color: #00ffff;
+            background-color: #ff6a00;
             width: 420px;
             padding: 30px 40px;
             position: absolute;
@@ -33,11 +33,11 @@
 
             .popup button {
                 display: block;
-                margin: 0 0 20px auto;
+                margin: 0 0 0px;
                 background-color: transparent;
                 font-size: 30px;
                 color: #ffffff;
-                background: #03549a;
+                background: #ff6a00;
                 border-radius: 100%;
                 width: 40px;
                 height: 40px;
@@ -56,19 +56,7 @@
                 margin: 20px 0;
                 line-height: 25px;
             }
-/*
-        a {
-            display: block;
-            width: 150px;
-            position: relative;
-            margin: 10px auto;
-            text-align: center;
-            background-color: #ffffff00;
-            border-radius: 20px;
-            color: #000000;
-            text-decoration: none;
-            padding: 8px 0;
-        }*/
+
     </style>
 
     <title>Automatic Popup</title>
@@ -81,9 +69,12 @@
 
     <div class="popup">
         <button id="close">&times;</button>
-        <h3>Sayfama Hoş Geldiniz</h3>
+        <h4>
+            <pre>@DateTime.Now.ToString("g");
+Sayfama Hoş Geldiniz</pre>
+        </h4>
         <p>
-            @*Sayfa Bilgileri*@
+            @*altini doldurmak istersen*@
         </p>
         
         

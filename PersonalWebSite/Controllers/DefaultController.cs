@@ -7,6 +7,7 @@ using PersonalWebSite.Models.Entity;
 
 namespace PersonalWebSite.Controllers
 {
+    [AllowAnonymous]
     public class DefaultController : Controller
     {
         // GET: Default

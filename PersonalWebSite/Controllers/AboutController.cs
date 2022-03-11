@@ -9,6 +9,7 @@ using PersonalWebSite.Repository;
 
 namespace PersonalWebSite.Controllers
 {
+    [Authorize]
     public class AboutController : Controller
     {
         GenericRepository<TblAbout> repository = new GenericRepository<TblAbout>();
