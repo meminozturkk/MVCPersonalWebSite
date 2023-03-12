@@ -1,0 +1,23 @@
+﻿@using PersonalWebSite.Models.Entity
+@model List<TblAdmin>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Admin Paneli</h2>
+
+<form method="post">
+    @foreach (var item in Model)
+    {
+        <label>Name</label>
+        <textarea rows="1" class="form-control" name="Username">@item.Username</textarea>
+        <br />
+        <label>Password</label>
+        <textarea rows="1" class="form-control" name="Password">@item.Password</textarea>
+        <br />
+    }
+    <br />
+    <button class="btn btn-info">Güncelle</button>
+
+</form>

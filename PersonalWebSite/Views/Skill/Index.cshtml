@@ -5,7 +5,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
+@{ string color = "";}
 
 <!DOCTYPE html>
 <html>
@@ -42,13 +42,30 @@
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
+                                            if (item.Rate>=0 && item.Rate<=50)
+                                            {
+                                                color = "progress-bar bg-danger";
+                                            }
+                                            else if (item.Rate>=51 && item.Rate<=70)
+                                            {
+                                                color = "progress-bar bg-warning";
+                                            }
+                                            else if (item.Rate >= 71 && item.Rate <= 84)
+                                            {
+                                                color = "progress-bar bg-primary";
+                                            }
+                                            else if (item.Rate >= 85 && item.Rate <= 100)
+                                            {
+                                                color = "progress-bar bg-success";
+                                            }
+
                                         <tr>
                                             <td>@item.Id</td>
                                             <td>@item.Skill</td>
 
                                             <td>
                                                 <div class="progress progress-xs">
-                                                    <div class="progress-bar progress-bar-danger" style="width: @item.Rate"></div>
+                                                    <div class="@color" style="width:@item.Rate%"></div>
                                                 </div>
                                             </td>
 

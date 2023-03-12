@@ -1,10 +1,10 @@
 ﻿@using PersonalWebSite.Models.Entity
 @model List<TblSkill>
-
+@{ string color = "";}
 <div class="resume-section-content">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    
+
     <h2 class="mb-5">Skılls</h2>
     <div class="subheading mb-3">
         Programming Languages ​​& Tools
@@ -21,12 +21,32 @@
 
     </ul>
     <div class="subheading mb-3">Skılls</div>
-    @foreach (var x in Model)
+    @foreach (var item in Model)
     {
+        if (item.Rate >= 0 && item.Rate <= 50)
+        {
+            color = "progress-bar bg-danger";
+        }
+        else if (item.Rate >= 51 && item.Rate <= 70)
+        {
+            color = "progress-bar bg-warning";
+        }
+        else if (item.Rate >= 71 && item.Rate <= 84)
+        {
+            color = "progress-bar bg-primary";
+        }
+        else if (item.Rate >= 85 && item.Rate <= 100)
+        {
+            color = "progress-bar bg-success";
+        }
         <ul class="fa-ul mb-0">
             <li>
                 <span class="fa-li"><i class="fas fa-check"></i></span>
-                @x.Skill
+                @item.Skill
+            <div class="progress progress-xs">
+                <div class="@color" style="width:@item.Rate%"></div>
+            </div>
+                
             </li>
         </ul>
     }

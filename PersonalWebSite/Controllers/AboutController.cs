@@ -12,7 +12,6 @@ namespace PersonalWebSite.Controllers
    // [Authorize]
     public class AboutController : Controller
     {
-        DbCvEntities dbCv = new DbCvEntities();
         GenericRepository<TblAbout> repository = new GenericRepository<TblAbout>();
         // GET: Interest
         
