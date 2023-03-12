@@ -9,12 +9,13 @@ using PersonalWebSite.Repository;
 
 namespace PersonalWebSite.Controllers
 {
-    [Authorize]
+   // [Authorize]
     public class AboutController : Controller
     {
+        DbCvEntities dbCv = new DbCvEntities();
         GenericRepository<TblAbout> repository = new GenericRepository<TblAbout>();
         // GET: Interest
-        [HttpGet]
+        
         public ActionResult Index()
         {
             var interest = repository.List();
